@@ -19,6 +19,7 @@ do
         (( Tail++ ))
     fi
 
+#to check if head or tail reach 21
     if [ $Head -gt 21 ]
     then
         echo "Head is win"
@@ -27,8 +28,32 @@ do
     then
         echo "Tail is win"
     break
+
+#condition if simulator attend a tie
+
     elif [ $Head -ge 21 ] && [ $Tail -ge 21 ]
     then
         echo "Match is Tie"
-    fi
+
+   for((  i=0; ;i++ ))
+   do
+        toss=$(( RANDOM%2 ))
+   if [ $toss -eq 1 ]
+   then
+        echo "Head" $Head
+        (( Head ++ ))
+   else
+        echo "Tail" $Tail
+        (( Tail++ ))
+   fi
+   if [  $(( $Head - $Tail )) == 2 ]
+   then
+      exit
+   fi
+   done
+   fi
+
+   (( count ++ ))
+
 done
+
