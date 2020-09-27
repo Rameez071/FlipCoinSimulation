@@ -18,4 +18,17 @@ do
         echo "Tail" $Tail
         (( Tail++ ))
     fi
+
+    if [ $Head -gt 21 ]
+    then
+        echo "Head is win"
+    break
+    elif [ $Tail -gt 21 ]
+    then
+        echo "Tail is win"
+    break
+    elif [ $Head -ge 21 ] && [ $Tail -ge 21 ]
+    then
+        echo "Match is Tie"
+    fi
 done
