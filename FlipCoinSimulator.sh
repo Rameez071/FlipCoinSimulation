@@ -1,13 +1,21 @@
 #!/bin/bash -x
 
-#Fliping Coin using random function
-toss=$(( RANDOM%2 ))
-if [ $toss -eq 1 ]
-then
+#variables
+Head=1
+Tail=1
+count=1
+
+#Loop with Simulator
+while (( $count > 0 ))
+do
+
+    toss=$(( RANDOM%2 ))
+    if [ $toss -eq 1 ]
+    then
         echo "Head" $Head
-
-else
-	echo "Tail" $Tail
-
-fi
-
+        (( Head ++ ))
+    else
+        echo "Tail" $Tail
+        (( Tail++ ))
+    fi
+done
